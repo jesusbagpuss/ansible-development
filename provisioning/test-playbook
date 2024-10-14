@@ -54,7 +54,7 @@ fi
 
 
 echo "Run the role/playbook again, checking to make sure it's idempotent."
-ansible-playbook ${playbook} -f 7 \
+ansible-playbook ${playbook} ${options} -f 7 \
 | grep -q 'changed=0.*failed=0' \
 && (echo 'Idempotence test: passed' && exit 0) \
 || (echo 'Idempotence test: failed' && exit 1)
